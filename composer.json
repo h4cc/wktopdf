@@ -1,0 +1,33 @@
+{
+    "name": "umbrella/wktopdf",
+    "description": "WkToPdf Component",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["wktopdf", "pdf", "html"],
+    "homepage": "https://github.com/umbrellaTech/wktopdf",
+    "authors": [
+        {
+            "name": "Ítalo Lelis de Vietro",
+            "email": "italolelis@lellysinformatica.com"
+        }
+    ],
+    "require": {
+        "easyframework/collections": "2.0.*@dev",
+        "symfony/filesystem": "2.4.*",
+        "symfony/http-foundation": "2.4.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    }
+}
