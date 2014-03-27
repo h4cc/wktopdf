@@ -9,8 +9,8 @@ before_install:
   - composer install --dev
 
 script:
- - apt-get install aptitude
- - aptitude install openssl build-essential xorg libssl-dev libxrender-dev xvfb libqt4-dev qt4-dev-tools
+ - sudo apt-get install aptitude
+ - sudo aptitude install openssl build-essential xorg libssl-dev libxrender-dev xvfb libqt4-dev qt4-dev-tools
  - wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1.tar.bz2
  - tar -xvf wkhtmltopdf-0.11.0_rc1.tar.bz2
  - cd wkhtmltopdf-0.11.0_rc1
@@ -30,10 +30,11 @@ script:
  - wget https://wkhtmltopdf.googlecode.com/files/libwkhtmltox-0.11.0_rc1-amd64.tar.bz2
  - tar -xvf wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2
  - tar -xvf libwkhtmltox-0.11.0_rc1-amd64.tar.bz2
- - mv wkhtmltopdf-amd64 /usr/bin/wkhtmltopdf
- - mv lib/libwkhtmltox.so /lib/libwkhtmltox.so.0
- - mv include/* /usr/local/include/
- - apache2ctl restart
+ - sudo mv wkhtmltopdf-amd64 /usr/bin/wkhtmltopdf
+ - sudo mv lib/libwkhtmltox.so /lib/libwkhtmltox.so.0
+ - sudo mv include/* /usr/local/include/
+ - sudo apache2ctl restart
+ - cd /home/travis/build/umbrellaTech/wktopdf
  - phpunit --coverage-clover=coverage.clover --configuration ./phpunit.xml ./tests
 
 after_script:
