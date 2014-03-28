@@ -281,13 +281,6 @@ class WkPdfRenderer implements IRenderer
             $this->pdfPath . '/' . $this->pdfName . '.pdf',
             $this->htmlPath
         ));
-//
-        $this->removeFiles(array(
-            $this->htmlPath,
-//            $this->footer->getFooterPath(),
-//            $this->header->getFooterPath()
-        ));
-
 
         return readfile($this->pdfPath . '/' . $this->pdfName . '.pdf');
     }
@@ -312,15 +305,6 @@ class WkPdfRenderer implements IRenderer
     protected function setPermissions(array $file)
     {
         return $this->fs->chmod($file, 0777);
-    }
-
-    /**
-     * Deleta um arquivo do File System
-     * @param array $file O caminho para o arquivo
-     */
-    protected function removeFiles(array $file)
-    {
-        return $this->fs->remove($file);
     }
 
 }
