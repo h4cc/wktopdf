@@ -9,32 +9,6 @@ before_install:
   - composer install --dev
 
 script:
- - sudo apt-get install aptitude -y
- - sudo aptitude install openssl build-essential xorg libssl-dev libxrender-dev xvfb libqt4-dev qt4-dev-tools -y
- - wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1.tar.bz2
- - tar -xvf wkhtmltopdf-0.11.0_rc1.tar.bz2
- - cd wkhtmltopdf-0.11.0_rc1
- - qmake-qt4 && make && make install
- - cd ; cp -r wkhtmltopdf-0.11.0_rc1/include/wkhtmltox /usr/include/
- - wget https://github.com/mreiferson/php-wkhtmltox/archive/master.zip
- - unzip master.zip
- - cd php-wkhtmltox-master/
- - phpize && ./configure && make && make test && make install
- - echo extension=phpwkhtmltox.so > /etc/php5/apache2/conf.d/php-wkhtmltox.ini
- - apache2ctl restart
- - mv /bin/wkhtmltopdf /bin/wkhtmltopdf.bin
- - echo 'xvfb-run -a -s "-screen 0 640x480x16" wkhtmltopdf.bin $*' > /bin/wkhtmltopdf
- - chmod +x /bin/wkhtmltopdf
- - cd ; mkdir temp ; cd temp ; mkdir html2pdf ; cd html2pdf
- - wget https://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2
- - wget https://wkhtmltopdf.googlecode.com/files/libwkhtmltox-0.11.0_rc1-amd64.tar.bz2
- - tar -xvf wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2
- - tar -xvf libwkhtmltox-0.11.0_rc1-amd64.tar.bz2
- - sudo mv wkhtmltopdf-amd64 /usr/bin/wkhtmltopdf
- - sudo mv lib/libwkhtmltox.so /lib/libwkhtmltox.so.0
- - sudo mv include/* /usr/local/include/
- - sudo apache2ctl restart
- - cd /home/travis/build/umbrellaTech/wktopdf
  - phpunit --coverage-clover=coverage.clover --configuration ./phpunit.xml ./tests
 
 after_script:
