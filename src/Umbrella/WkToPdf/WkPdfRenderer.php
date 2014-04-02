@@ -89,6 +89,10 @@ class WkPdfRenderer implements IRenderer
      */
     public function __construct()
     {
+        if (!function_exists("wkhtmltox_convert")) {
+            throw new WkExtensionNotInstalledException("A extensão do wkhtmltox não está instalada");
+        }
+
         $this->fs = new Filesystem();
         $this->options = new Dictionary();
         $this->pdfOptions = new Dictionary();
