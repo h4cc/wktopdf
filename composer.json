@@ -19,8 +19,12 @@
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
     },
+    "suggestion": {
+        "h4cc/wkhtmltopdf-i386": "Install the binaries for wkhtmltopdf for i386 architectures.",
+        "h4cc/wkhtmltopdf-amd64": "Install the binaries for wkhtmltopdf for amd64 architectures."
+    }
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "": "src/"
         }
     },
